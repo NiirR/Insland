@@ -1,12 +1,12 @@
 package org.example;
 
 import javax.swing.*;
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.ListIterator;
 
 public abstract class Animal {
-
+    private int age;
     public ImageIcon icon;
     private int weight;
     static int speedMove;
@@ -14,17 +14,18 @@ public abstract class Animal {
     private  int y;
     protected boolean readyReproduce;
 
-    public void eat(List<Animal> herbivore) {
-        Iterator<Animal> animalIterator = herbivore.iterator();
+
+    public void eat(List<Animal> animals) {
+        Iterator<Animal> animalIterator = animals.iterator();
         while (animalIterator.hasNext()) {
             Animal animal = animalIterator.next();
             if (this.getX() == animal.getX() && this.getY() == animal.getY()) {
-                if (animal instanceof Rabbit) {
+                if (animal instanceof Rabbit && this instanceof Predator) {
                     this.setWeight(this.getWeight() + animal.getWeight());
                     System.out.println("Волк сьел зайца!");
                     System.out.println(this.getWeight());
                     animalIterator.remove();
-                    System.out.println(herbivore.size());
+                    System.out.println(animals.size());
                     break;
                 }
             }
@@ -34,14 +35,23 @@ public abstract class Animal {
 
 
     public void reproduce(List<Animal> animals){
-      if(animals.stream().filter(x -> x.getClass().getName().equals(this.getClass().getName())).filter(x -> x.getX() == this.getX()).filter(x -> x.getY() == this.getY()).count() > 0) {
-          animals.add(new Wolf(this.getX(), this.getY()));
-          System.out.println("Родился волк");
-
-      }
-
-
+        ListIterator<Animal> listIterator = animals.listIterator();
+        int success = (int) (Math.random() * 5);
+        while (listIterator.hasNext()){
+            Animal animal = listIterator.next();
+            if((this.getAge() > 4 && animal.getAge() > 4) && (this.readyReproduce && animal.readyReproduce) )
+            if(this.getClass().getName().equals(animal.getClass().getName()) && this != animal){
+                if(this.getX() == animal.getX() && this.getY() == animal.getY() && success > 3){
+                    listIterator.add(new Wolf(this.getX() , this.getY()));
+                    System.out.println("Появился волченок!");
+                    System.out.println((long) animals.size());
+                    break;
+                }
+            }
+        }
     }
+
+
 
     public void move(Animal animal){
         int move = (int) (Math.random()* (animal.getSpeedMove() +1));
@@ -92,4 +102,11 @@ public abstract class Animal {
         this.readyReproduce = readyReproduce;
     }
 
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
 }

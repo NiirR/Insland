@@ -9,14 +9,18 @@ public class Main {
     public static void main(String[] args) {
         Controller controller = new Controller();
         controller.spawn();
-        controller.animalPrint();
+
 
         while (true) {
             try {
-                for (Animal animal : controller.getPredatorList()) animal.move(animal);
-                for (Animal animal : controller.getHerbivoreList()) animal.move(animal);
-                for (Animal animal : controller.getPredatorList()) animal.eat(controller.getHerbivoreList());
-                for (Animal animal : controller.getPredatorList()) animal.reproduce(controller.getPredatorList());
+                for (Animal animal : controller.getAnimals()) animal.move(animal);
+
+                controller.temp = new ArrayList<>(controller.getAnimals());
+                for (Animal animal : controller.temp) animal.eat(controller.getAnimals());
+
+                controller.temp = new ArrayList<>(controller.getAnimals());
+                for (Animal animal : controller.temp) animal.reproduce(controller.getAnimals());
+
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
