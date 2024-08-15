@@ -4,11 +4,12 @@ import javax.swing.*;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
+import java.util.stream.Collectors;
 
 public abstract class Animal {
     private int age;
     public ImageIcon icon;
-    private int weight;
+    private double weight;
     static int speedMove;
     private  int x;
     private  int y;
@@ -39,12 +40,14 @@ public abstract class Animal {
         int success = (int) (Math.random() * 5);
         while (listIterator.hasNext()){
             Animal animal = listIterator.next();
-            if((this.getAge() > 4 && animal.getAge() > 4) && (this.readyReproduce && animal.readyReproduce) )
+            if(this.readyReproduce && animal.readyReproduce )
             if(this.getClass().getName().equals(animal.getClass().getName()) && this != animal){
                 if(this.getX() == animal.getX() && this.getY() == animal.getY() && success > 3){
                     listIterator.add(new Wolf(this.getX() , this.getY()));
-                    System.out.println("Появился волченок!");
-                    System.out.println((long) animals.size());
+                    this.setReadyReproduce(false);
+                    animal.setReadyReproduce(false);
+                    System.out.println("В " + animals.stream().filter(x -> x instanceof Wolf).count());
+                    System.out.println("З " + animals.stream().filter(x -> x instanceof Rabbit).count());
                     break;
                 }
             }
@@ -82,7 +85,7 @@ public abstract class Animal {
         return speedMove;
     }
 
-    public int getWeight() {
+    public double getWeight() {
         return weight;
     }
 
@@ -94,7 +97,7 @@ public abstract class Animal {
         this.y = y;
     }
 
-    public void setWeight(int weight) {
+    public void setWeight(double weight) {
         this.weight = weight;
     }
 

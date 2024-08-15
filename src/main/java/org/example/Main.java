@@ -21,6 +21,8 @@ public class Main {
                 controller.temp = new ArrayList<>(controller.getAnimals());
                 for (Animal animal : controller.temp) animal.reproduce(controller.getAnimals());
 
+                controller.nextTurn();
+
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
