@@ -22,6 +22,7 @@ public class Main {
                 for (Animal animal : controller.temp) animal.reproduce(controller.getAnimals());
 
                 controller.nextTurn();
+                controller.animalPrint();
 
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
