@@ -1,4 +1,4 @@
-package org.example;
+package org.example.service;
 
 public final class Settings {
     public Settings settings = new Settings();

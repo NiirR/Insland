@@ -1,6 +1,8 @@
-package org.example;
+package org.example.service;
 
-import org.example.Animals.*;
+import org.example.entity.Animal;
+import org.example.entity.animals.*;
+import org.example.entity.Plant;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -78,7 +80,7 @@ public class Service {
 
             if(animal.getAge() > Settings.AGE_OF_DEAD) animalIterator.remove();
             animal.setAge(animal.getAge() + 1);
-            if(!(animal.name.equals("Caterpillar"))) {
+            if(!(animal.getName().equals("Caterpillar"))) {
                 animal.setWeight(animal.getWeight() * Settings.DECREASE_WEIGHT_IN_TURN);
             }
             animal.setReadyReproduce(true);
@@ -87,22 +89,22 @@ public class Service {
 
 public  void animalPrint(){
     System.out.println("<<<ХИЩЬНИКИ>>");
-    System.out.println("\uD83D\uDC3A " + animals.stream().filter(x -> x.name.equals("Wolf")).count());
-    System.out.println("\uD83D\uDC0D " + animals.stream().filter(x -> x.name.equals("Snake")).count());
-    System.out.println("\uD83E\uDD8A " + animals.stream().filter(x -> x.name.equals("Fox")).count());
-    System.out.println("\uD83D\uDC3B " + animals.stream().filter(x -> x.name.equals("Bear")).count());
-    System.out.println("\uD83E\uDD85 " + animals.stream().filter(x -> x.name.equals("Eagle")).count());
+    System.out.println("\uD83D\uDC3A " + animals.stream().filter(x -> x.getName().equals("Wolf")).count());
+    System.out.println("\uD83D\uDC0D " + animals.stream().filter(x -> x.getName().equals("Snake")).count());
+    System.out.println("\uD83E\uDD8A " + animals.stream().filter(x -> x.getName().equals("Fox")).count());
+    System.out.println("\uD83D\uDC3B " + animals.stream().filter(x -> x.getName().equals("Bear")).count());
+    System.out.println("\uD83E\uDD85 " + animals.stream().filter(x -> x.getName().equals("Eagle")).count());
     System.out.println("<<Травоядные>>");
-    System.out.println("\uD83D\uDC0E " + animals.stream().filter(x -> x.name.equals("Horse")).count());
-    System.out.println("\uD83E\uDD8C " + animals.stream().filter(x -> x.name.equals("Deer")).count());
-    System.out.println("\uD83D\uDC07 " + animals.stream().filter(x -> x.name.equals("Rabbit")).count());
-    System.out.println("\uD83D\uDC01 " + animals.stream().filter(x -> x.name.equals("Mouse")).count());
-    System.out.println("\uD83D\uDC10 " + animals.stream().filter(x -> x.name.equals("Goat")).count());
-    System.out.println("\uD83D\uDC11 " + animals.stream().filter(x -> x.name.equals("Sheep")).count());
-    System.out.println("\uD83D\uDC17 " + animals.stream().filter(x -> x.name.equals("Boar")).count());
-    System.out.println("\uD83D\uDC03 " + animals.stream().filter(x -> x.name.equals("Buffalo")).count());
-    System.out.println("\uD83E\uDD86 " + animals.stream().filter(x -> x.name.equals("Duck")).count());
-    System.out.println("\uD83D\uDC1B " + animals.stream().filter(x -> x.name.equals("Caterpillar")).count());
+    System.out.println("\uD83D\uDC0E " + animals.stream().filter(x -> x.getName().equals("Horse")).count());
+    System.out.println("\uD83E\uDD8C " + animals.stream().filter(x -> x.getName().equals("Deer")).count());
+    System.out.println("\uD83D\uDC07 " + animals.stream().filter(x -> x.getName().equals("Rabbit")).count());
+    System.out.println("\uD83D\uDC01 " + animals.stream().filter(x -> x.getName().equals("Mouse")).count());
+    System.out.println("\uD83D\uDC10 " + animals.stream().filter(x -> x.getName().equals("Goat")).count());
+    System.out.println("\uD83D\uDC11 " + animals.stream().filter(x -> x.getName().equals("Sheep")).count());
+    System.out.println("\uD83D\uDC17 " + animals.stream().filter(x -> x.getName().equals("Boar")).count());
+    System.out.println("\uD83D\uDC03 " + animals.stream().filter(x -> x.getName().equals("Buffalo")).count());
+    System.out.println("\uD83E\uDD86 " + animals.stream().filter(x -> x.getName().equals("Duck")).count());
+    System.out.println("\uD83D\uDC1B " + animals.stream().filter(x -> x.getName().equals("Caterpillar")).count());
     System.out.println("<<Растение>>");
     System.out.println("\uD83C\uDF3F " + plants.size());
 }

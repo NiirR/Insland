@@ -1,11 +1,11 @@
-package org.example.Animals;
+package org.example.entity.animals;
 
-import org.example.Predator;
+import org.example.entity.Predator;
 
 public class Bear extends Predator {
 
     public Bear(int x , int y){
-        name = "Bear";
+        setName("Bear");
         setWeight(500);
         maxWeight = 580;
         speedMove = 2;

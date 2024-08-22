@@ -1,6 +1,4 @@
-package org.example;
-
-import java.util.List;
+package org.example.entity;
 
 public abstract class Herbivore extends Animal{
 

@@ -1,11 +1,11 @@
-package org.example.Animals;
+package org.example.entity.animals;
 
-import org.example.Herbivore;
+import org.example.entity.Herbivore;
 
 public class Mouse extends Herbivore {
 
     public Mouse(int x , int y){
-        name = "Mouse";
+        setName("Mouse");
         setWeight(0.05);
         maxWeight = 0.06;
         speedMove = 1;

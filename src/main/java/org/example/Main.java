@@ -1,6 +1,9 @@
 package org.example;
 
 
+import org.example.entity.Animal;
+import org.example.service.Service;
+
 import java.util.*;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

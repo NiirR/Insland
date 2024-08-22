@@ -1,12 +1,15 @@
-package org.example;
+package org.example.service;
+
+
+import org.example.entity.Animal;
 
 
 public class Hunting{
 
     public static int hunt(Animal hunter , Animal prey){
         int chance = 0;
-        if (hunter.name.equals("Wolf")){
-            chance = switch (prey.name) {
+        if (hunter.getName().equals("Wolf")){
+            chance = switch (prey.getName()) {
                 case "Rabbit", "Goat" -> 60;
                 case "Boar", "Deer" -> 15;
                 case "Buffalo", "Horse" -> 10;
@@ -17,8 +20,8 @@ public class Hunting{
             };
         }
 
-        if (hunter.name.equals("Snake")){
-            chance = switch (prey.name) {
+        if (hunter.getName().equals("Snake")){
+            chance = switch (prey.getName()) {
                 case "Fox" -> 15;
                 case "Rabbit" -> 20;
                 case "Duck" -> 10;
@@ -27,8 +30,8 @@ public class Hunting{
             };
         }
 
-        if (hunter.name.equals("Fox")){
-            chance = switch (prey.name) {
+        if (hunter.getName().equals("Fox")){
+            chance = switch (prey.getName()) {
                 case "Rabbit" -> 70;
                 case "Duck" -> 60;
                 case "Caterpillar" -> 40;
@@ -37,8 +40,8 @@ public class Hunting{
             };
         }
 
-        if (hunter.name.equals("Bear")){
-            chance = switch (prey.name) {
+        if (hunter.getName().equals("Bear")){
+            chance = switch (prey.getName()) {
                 case "Deer", "Rabbit" , "Snake" -> 80;
                 case "Horse" -> 40;
                 case "Buffalo" -> 20;
@@ -50,8 +53,8 @@ public class Hunting{
             };
         }
 
-        if (hunter.name.equals("Eagle")){
-            chance = switch (prey.name) {
+        if (hunter.getName().equals("Eagle")){
+            chance = switch (prey.getName()) {
                 case "Duck" -> 80;
                 case "Mouse", "Rabbit" -> 90;
                 case "Fox" -> 10;
@@ -59,20 +62,20 @@ public class Hunting{
             };
         }
 
-        if (hunter.name.equals("Boar")){
-            chance = switch (prey.name) {
+        if (hunter.getName().equals("Boar")){
+            chance = switch (prey.getName()) {
                 case "Caterpillar" -> 60;
                 case "Mouse"-> 50;
                 default -> chance;
             };
         }
 
-        if (hunter.name.equals("Mouse")){
-            if(prey.name.equals("Caterpillar")) chance = 60;
+        if (hunter.getName().equals("Mouse")){
+            if(prey.getName().equals("Caterpillar")) chance = 60;
         }
 
-        if (hunter.name.equals("Duck")){
-            if(prey.name.equals("Caterpillar")) chance = 60;
+        if (hunter.getName().equals("Duck")){
+            if(prey.getName().equals("Caterpillar")) chance = 60;
         }
 
 

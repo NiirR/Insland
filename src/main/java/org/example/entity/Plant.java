@@ -1,14 +1,9 @@
-package org.example;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.ThreadLocalRandom;
+package org.example.entity;
 
 public class Plant {
     int x;
     int y;
     private final int weight ;
-    int maxLimit = 200;
 
     public Plant(int x , int y){
         weight = 1;

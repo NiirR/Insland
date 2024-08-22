@@ -1,6 +1,8 @@
-package org.example;
+package org.example.entity;
 
-import org.example.Animals.*;
+import org.example.entity.animals.*;
+import org.example.service.Hunting;
+import org.example.service.Settings;
 
 import java.util.Iterator;
 import java.util.List;
@@ -8,7 +10,7 @@ import java.util.ListIterator;
 import java.util.concurrent.ThreadLocalRandom;
 
 public abstract class Animal {
-    protected String name;
+    private String name;
     private int age;
     private double weight;
     protected double maxWeight;
@@ -135,5 +137,13 @@ public abstract class Animal {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
