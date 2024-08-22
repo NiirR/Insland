@@ -11,6 +11,5 @@ public class Horse extends Herbivore {
         speedMove = 4;
         setAge(0);
         maxLimit = 20;
-        icon = "\uD83D\uDC0E";
     }
 }

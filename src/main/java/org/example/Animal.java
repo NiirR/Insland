@@ -1,7 +1,6 @@
 package org.example;
 
-import org.example.Animals.Rabbit;
-import org.example.Animals.Wolf;
+import org.example.Animals.*;
 
 import java.util.Iterator;
 import java.util.List;
@@ -11,7 +10,6 @@ import java.util.concurrent.ThreadLocalRandom;
 public abstract class Animal {
     protected String name;
     private int age;
-    protected static String icon;
     private double weight;
     protected double maxWeight;
     protected static int speedMove;
@@ -21,17 +19,30 @@ public abstract class Animal {
     protected boolean readyReproduce = false;
 
 
-    public void eat(List<Animal> animals) {
+
+
+    public void eat(List<Animal> animals , List<Plant> plants) {
+        int random = ThreadLocalRandom.current().nextInt(1 , 101);
         Iterator<Animal> animalIterator = animals.iterator();
-        while (animalIterator.hasNext()) {
-            Animal animal = animalIterator.next();
-            if (this.getX() == animal.getX() && this.getY() == animal.getY()) {
-                if (animal instanceof Rabbit && this instanceof Predator) {
-                    this.setWeight(this.getWeight() + animal.getWeight());
-                    animalIterator.remove();
+        Iterator<Plant> plantIterator = plants.iterator();
+        if(this instanceof Herbivore && !(this.name.equals("Caterpillar"))){
+           while (plantIterator.hasNext()){
+               Plant plant = plantIterator.next();
+                if(this.getX() == plant.getX() && this.getY() == plant.getY()){
+                    plantIterator.remove();
                     break;
                 }
             }
+        }
+        while (animalIterator.hasNext()) {
+            Animal animal = animalIterator.next();
+            if (this.getX() == animal.getX() && this.getY() == animal.getY()) {
+                if (Hunting.hunt(this , animal) >= random) {
+                    this.setWeight(this.getWeight() + animal.getWeight());
+                    animalIterator.remove();
+                    break;
+                    }
+                }
         }
     }
 
@@ -46,21 +57,21 @@ public abstract class Animal {
             if(this.name.equals(animal.name) && this != animal) {
                 if (this.getX() == animal.getX() && this.getY() == animal.getY() && success <= Settings.CHANCE_OF_REPRODUCTION) {
                     switch (animal.name){
-                        case "Wolf": listIterator.add(new Wolf(this.getX(), this.getY()));
-                        case "Rabbit": listIterator.add(new Rabbit(this.getX(), this.getY()));
-                        case "Bear": listIterator.add(new Rabbit(this.getX(), this.getY()));
-                        case "Boar": listIterator.add(new Rabbit(this.getX(), this.getY()));
-                        case "Buffalo": listIterator.add(new Rabbit(this.getX(), this.getY()));
-                        case "Caterpillar": listIterator.add(new Rabbit(this.getX(), this.getY()));
-                        case "Deer": listIterator.add(new Rabbit(this.getX(), this.getY()));
-                        case "Duck": listIterator.add(new Rabbit(this.getX(), this.getY()));
-                        case "Eagle": listIterator.add(new Rabbit(this.getX(), this.getY()));
-                        case "Fox": listIterator.add(new Rabbit(this.getX(), this.getY()));
-                        case "Goat": listIterator.add(new Rabbit(this.getX(), this.getY()));
-                        case "Horse": listIterator.add(new Rabbit(this.getX(), this.getY()));
-                        case "Mouse": listIterator.add(new Rabbit(this.getX(), this.getY()));
-                        case "Sheep": listIterator.add(new Rabbit(this.getX(), this.getY()));
-                        case "Snake": listIterator.add(new Rabbit(this.getX(), this.getY()));
+                        case "Wolf": listIterator.add(new Wolf(this.getX(), this.getY())); break;
+                        case "Rabbit": listIterator.add(new Rabbit(this.getX(), this.getY())); break;
+                        case "Bear": listIterator.add(new Bear(this.getX(), this.getY())); break;
+                        case "Boar": listIterator.add(new Boar(this.getX(), this.getY())); break;
+                        case "Buffalo": listIterator.add(new Buffalo(this.getX(), this.getY())); break;
+                        case "Caterpillar": listIterator.add(new Caterpillar(this.getX(), this.getY())); break;
+                        case "Deer": listIterator.add(new Deer(this.getX(), this.getY())); break;
+                        case "Duck": listIterator.add(new Duck(this.getX(), this.getY())); break;
+                        case "Eagle": listIterator.add(new Eagle(this.getX(), this.getY())); break;
+                        case "Fox": listIterator.add(new Fox(this.getX(), this.getY())); break;
+                        case "Goat": listIterator.add(new Goat(this.getX(), this.getY())); break;
+                        case "Horse": listIterator.add(new Horse(this.getX(), this.getY())); break;
+                        case "Mouse": listIterator.add(new Mouse(this.getX(), this.getY())); break;
+                        case "Sheep": listIterator.add(new Sheep(this.getX(), this.getY())); break;
+                        case "Snake": listIterator.add(new Snake(this.getX(), this.getY())); break;
                     }
                     this.setReadyReproduce(false);
                     animal.setReadyReproduce(false);
@@ -70,7 +81,6 @@ public abstract class Animal {
             }
         }
     }
-
 
 
     public void move(Animal animal){

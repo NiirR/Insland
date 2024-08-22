@@ -11,6 +11,5 @@ public class Rabbit extends Herbivore {
         speedMove = 3;
         setAge(0);
         maxLimit = 150;
-        icon = "\uD83D\uDC07";
     }
 }

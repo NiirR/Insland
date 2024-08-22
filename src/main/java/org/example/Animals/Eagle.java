@@ -11,6 +11,5 @@ public class Eagle extends Predator {
         speedMove = 3;
         setAge(0);
         maxLimit = 20;
-        icon = "\uD83E\uDD85";
     }
 }

@@ -11,6 +11,5 @@ public class Bear extends Predator {
         speedMove = 2;
         setAge(0);
         maxLimit = 5;
-        icon = "\uD83D\uDC3B";
     }
 }

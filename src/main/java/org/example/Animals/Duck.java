@@ -11,6 +11,5 @@ public class Duck extends Herbivore {
         speedMove = 4;
         setAge(0);
         maxLimit = 200;
-        icon = "\uD83E\uDD86";
     }
 }

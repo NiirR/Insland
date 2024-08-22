@@ -11,6 +11,5 @@ public class Boar extends Herbivore {
         speedMove = 2;
         setAge(0);
         maxLimit = 50;
-        icon = "\uD83D\uDC17";
     }
 }

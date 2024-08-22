@@ -11,6 +11,5 @@ public class Fox extends Predator {
         speedMove = 2;
         setAge(0);
         maxLimit = 30;
-        icon = "\uD83E\uDD8A";
     }
 }

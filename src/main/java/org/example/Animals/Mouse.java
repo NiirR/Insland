@@ -11,6 +11,5 @@ public class Mouse extends Herbivore {
         speedMove = 1;
         setAge(0);
         maxLimit = 500;
-        icon = "\uD83D\uDC01";
     }
 }

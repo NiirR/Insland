@@ -11,7 +11,6 @@ public class Wolf extends Predator {
         speedMove = 3;
         setAge(0);
         maxLimit = 30;
-        icon = "\uD83D\uDC3A";
     }
 
 }

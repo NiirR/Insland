@@ -11,6 +11,5 @@ public class Snake extends Predator {
         speedMove = 1;
         setAge(0);
         maxLimit = 30;
-        icon = "\uD83D\uDC0D";
     }
 }

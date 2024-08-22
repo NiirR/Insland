@@ -10,6 +10,5 @@ public class Caterpillar extends Herbivore {
         speedMove = 0;
         setAge(0);
         maxLimit = 1000;
-        icon = "\uD83D\uDC1B";
     }
 }

@@ -1,11 +1,28 @@
 package org.example;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
+
 public class Plant {
-    int Weight = 1;
+    int x;
+    int y;
+    private final int weight ;
     int maxLimit = 200;
-    String icon = "\uD83C\uDF3F";
 
-    public static void reproduce(){
+    public Plant(int x , int y){
+        weight = 1;
+    }
 
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public int getWeight() {
+        return weight;
     }
 }

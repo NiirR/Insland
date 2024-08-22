@@ -11,6 +11,5 @@ public class Buffalo extends Herbivore {
         speedMove = 3;
         setAge(0);
         maxLimit = 10;
-        icon = "\uD83D\uDC03";
     }
 }

@@ -11,6 +11,5 @@ public class Sheep extends Herbivore {
         speedMove = 3;
         setAge(0);
         maxLimit = 140;
-        icon = "\uD83D\uDC11";
     }
 }
